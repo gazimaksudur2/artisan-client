@@ -5,6 +5,7 @@ import AllCrafts from "../pages/AllCrafts/AllCrafts";
 import MyCraft from "../pages/MyCraft/MyCraft";
 import NotFound from "../components/NotFound";
 import Login from "../pages/Authentication/Login";
+import Register from "../pages/Authentication/Register";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
         path: '/authenticate',
         errorElement: <NotFound/>,
         element: <Login/>,
+    },
+    {
+        path: '/authenticate/register',
+        element: <Register/>,
+        errorElement: <NotFound/>
     }
 ])
 
