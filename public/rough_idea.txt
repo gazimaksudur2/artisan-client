@@ -50,3 +50,13 @@ Macrame:
 3. Macramé Jewelry: Crafting bracelets, necklaces, and earrings using macramé knots and techniques.
 4. Keychains and Accessories: Making keychains, belts, and other accessories using macramé techniques.
 5. Macramé Bags and Purses: Creating stylish bags and purses using macramé cords and weaving techniques.
+
+
+
+
+Extra sections options are --->
+1. customers review.
+2. maps.
+3. FAQs.
+4. charts.
+5. 
