@@ -1,8 +1,20 @@
-# React + Vite
+#Artisan Haven
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Client side info-----------
 
-Currently, two official plugins are available:
+Student ID : WEB9-0234
+Assigned Project Title : B9 A10 Type-02 Requirements
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+live site at firebase hosting : https://artisan-haven.web.app/
+private repo link : https://github.com/programming-hero-web-course-4/B9A10-client-side-gazimaksudur2
+
+Selected Features:
+-------> Textile Arts
+a. Embroidery
+b. Knitting & Crocheting
+c. Quilting
+d. Beadwork
+e. Tie-Dyeing
+f. Macrame
+
+* Five Bullet feature points
