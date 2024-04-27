@@ -1,10 +1,19 @@
 import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
+import { Tooltip } from 'react-tooltip';
 
 const Navbar = () => {
-    const { user } = useContext(AuthContext);
+    const { user, setUser, logOut } = useContext(AuthContext);
     // const user = null;
+
+    const handleLogout = () => {
+        logOut()
+            .then(res => {
+                console.log(res);
+                setUser(null);
+            })
+    }
 
     const navLinks = (
         <>
@@ -14,35 +23,65 @@ const Navbar = () => {
             <li><NavLink to={'/about'} className={({ isActive }) => isActive ? 'border-b-4 border-orange-700  py-2 font-semibold font-open' : ''}>About</NavLink></li>
         </>
     );
+    const place = 'bottom-end';
+
     const navEnd = (
         <>
             <div className="dropdown dropdown-end">
                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                     <div className="w-10 rounded-full">
-                        <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                        <img id="my-tooltip-anchor" alt="Tailwind CSS Navbar component" src={`${user.photoURL}`} />
+                        <Tooltip
+                            key={place}
+                            anchorSelect="#my-tooltip-anchor"
+                            content={`${user.displayName}!`}
+                            place={place}
+                        />
                     </div>
                 </div>
-                <ul tabIndex={0} className="mt-3 z-30 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                <ul tabIndex={0} className="mt-3 p-3 gap-3 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                     <li>
-                        <a className="justify-between">
-                            Profile
-                            <span className="badge">New</span>
-                        </a>
+                        <Link to={'/updateProfile'}>
+                            Update Profile
+                        </Link>
                     </li>
-                    <li><a>Settings</a></li>
-                    <li><a className='btn btn-outline'>Logout</a></li>
+                    <li>
+                        <Link to={'/viewProfile'}>
+                            View Profile
+                        </Link>
+                    </li>
+                    <li><button onClick={handleLogout} className='btn btn-outline'>Logout</button></li>
                 </ul>
             </div>
         </>
     );
+
+    const drawer = (
+        <>
+            <div className="drawer drawer-end">
+                <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
+                <div className="drawer-content">
+                    {/* Page content here */}
+                    <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary">Open drawer</label>
+                </div>
+                <div className="drawer-side">
+                    <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
+                    <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+                        {/* Sidebar content here */}
+                        <li><a>Sidebar Item 1</a></li>
+                        <li><a>Sidebar Item 2</a></li>
+                    </ul>
+                </div>
+            </div>
+        </>
+    )
     const login = (
         <Link to={'/authenticate'}>
             <button className='btn btn-accent'>Login</button>
         </Link>
     );
-
     return (
-        <div className="w-[95%] mx-auto my-2 shadow navbar bg-base-200">
+        <div className="w-[95%] mx-auto my-4 shadow navbar bg-orange-50">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -63,9 +102,12 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                {
-                    user?navEnd:login
-                }
+                <div className='flex justify-center items-center gap-3'>
+                    {drawer}
+                    {
+                        user ? navEnd : login
+                    }
+                </div>
             </div>
         </div>
     );

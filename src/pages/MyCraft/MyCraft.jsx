@@ -1,9 +1,7 @@
-import React from 'react';
-
 const MyCraft = () => {
     return (
         <div>
-            
+            <h2>This is my craft page...</h2>
         </div>
     );
 };

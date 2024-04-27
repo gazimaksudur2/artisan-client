@@ -20,8 +20,8 @@ f. Macrame
 * Five Bullet feature points
 
 
-* Used react packages to implement challenging part
-a. Lottie React
-b. React-simple-typewriter
-c. React Awesome reveal
-d. React-tooltip
+* Implemented react packages for challenging part
+a. Lottie React --> 
+b. React-simple-typewriter --> 
+c. React Awesome reveal -->
+d. React-tooltip --> implemented on hover user profile picture

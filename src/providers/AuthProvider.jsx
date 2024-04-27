@@ -1,10 +1,9 @@
-import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import { createContext, useEffect, useState } from 'react';
-import app from './FirebaseProvider'
-import { GithubAuthProvider, GoogleAuthProvider, TwitterAuthProvider } from 'firebase/auth/cordova';
+import auth from './FirebaseProvider'
+import { GithubAuthProvider, GoogleAuthProvider, TwitterAuthProvider } from 'firebase/auth';
 
 export const AuthContext = createContext(null);
-const auth = getAuth(app);
 
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
@@ -16,7 +15,21 @@ const AuthProvider = ({children}) => {
 
     const createUser = (email, password)=>{
         setLoading(true);
-        return signInWithEmailAndPassword(auth, email, password);
+        return createUserWithEmailAndPassword(auth, email, password);
+    }
+
+    const updateprofile = (name, url)=>{
+        setLoading(true);
+        updateProfile(auth.currentUser,{
+            displayName:  name,
+            photoURL: url,
+        })
+            .then(
+                console.log('your profile Updated!!!')
+            )
+            .catch(
+                console.log('Profile cannot updated!!!')
+            )
     }
 
     const logIn = (email, password)=>{
@@ -28,30 +41,33 @@ const AuthProvider = ({children}) => {
     }
 
     const googleLogin = ()=>{
-        return signInWithPopup(googleProvider);
+        return signInWithPopup(auth, googleProvider);
     }
 
     const githubLogin = ()=>{
-        return signInWithPopup(githubProvider);
+        return signInWithPopup(auth, githubProvider);
     }
 
     const twitterLogin = ()=>{
-        return signInWithPopup(twitterProvider);
+        return signInWithPopup(auth, twitterProvider);
     }
 
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, cur_user=>{
             setUser(cur_user);
         });
-        return (
+        return ()=>{
             unsubscribe()
-        )
-    },[])
+        }
+    },[]);
+
     const authInfo = {
         user,
+        setUser,
         loading,
         setLoading,
         createUser,
+        updateprofile,
         logIn,
         googleLogin,
         githubLogin,

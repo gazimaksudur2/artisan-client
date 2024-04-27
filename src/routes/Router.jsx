@@ -6,6 +6,13 @@ import MyCraft from "../pages/MyCraft/MyCraft";
 import NotFound from "../components/NotFound";
 import Login from "../pages/Authentication/Login";
 import Register from "../pages/Authentication/Register";
+import UpdateProfile from "../pages/Authentication/UpdateProfile";
+import ViewProfile from "../pages/Authentication/ViewProfile";
+import PrivateRouter from "./PrivateRouter";
+import About from "../pages/About/About";
+import SecondaryCraft from "../pages/MyCraft/SecondaryCraft";
+import AddCraft from "../pages/MyCraft/AddCraft";
+import UpdateCraft from "../pages/MyCraft/UpdateCraft";
 
 const router = createBrowserRouter([
     {
@@ -23,7 +30,12 @@ const router = createBrowserRouter([
             },
             {
                 path: '/mycrafts',
-                element: <MyCraft/>
+                element: <PrivateRouter><MyCraft/></PrivateRouter>,
+                // element:<MyCraft/>,
+            },
+            {
+                path: '/about',
+                element: <About/>,
             }
         ]
     },
@@ -36,6 +48,30 @@ const router = createBrowserRouter([
         path: '/authenticate/register',
         element: <Register/>,
         errorElement: <NotFound/>
+    },
+    {
+        path: '/updateProfile',
+        errorElement: <NotFound/>,
+        element: <UpdateProfile/>,
+    },
+    {
+        path: '/viewProfile',
+        element: <ViewProfile/>,
+        errorElement: <NotFound/>
+    },
+    {
+        path: '/secondary',
+        element: <SecondaryCraft/>,
+        children: [
+            {
+                index: true,
+                element: <AddCraft/>,
+            },
+            {
+                path: '/secondary/update',
+                element: <UpdateCraft/>,
+            }
+        ]
     }
 ])
 
