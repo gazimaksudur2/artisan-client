@@ -13,6 +13,7 @@ import About from "../pages/About/About";
 import SecondaryCraft from "../pages/MyCraft/SecondaryCraft";
 import AddCraft from "../pages/MyCraft/AddCraft";
 import UpdateCraft from "../pages/MyCraft/UpdateCraft";
+import ViewCraft from "../pages/ViewCraft/ViewCraft";
 
 const router = createBrowserRouter([
     {
@@ -70,6 +71,11 @@ const router = createBrowserRouter([
             {
                 path: '/secondary/update',
                 element: <UpdateCraft/>,
+            },
+            {
+                path: '/secondary/view/:id',
+                element: <ViewCraft/>,
+                loader: ({params})=>fetch(''),
             }
         ]
     }

@@ -10,7 +10,7 @@ const CraftSection = () => {
             <div className="space-y-3 flex flex-col justify-center items-center my-6">
                 <h1 className="font-exo font-semibold text-2xl">Add your Personalized Textile Crafts here</h1>
                 <Link to={'/secondary'}>
-                    <button className="btn btn-outline border-orange-800 hover:border-orange-600 text-white bg-orange-600 hover:bg-orange-400 border-4">Add Crafts</button>
+                    <button className="btn btn-outline scale-125 mt-4 border-orange-800 hover:border-orange-600 text-white bg-orange-600 hover:bg-orange-400 border-4">Add Crafts</button>
                 </Link>
             </div>
         </div>

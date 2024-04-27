@@ -25,56 +25,52 @@ const Navbar = () => {
     );
     const place = 'bottom-end';
 
-    const navEnd = (
-        <>
-            <div className="dropdown dropdown-end">
-                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                    <div className="w-10 rounded-full">
-                        <img id="my-tooltip-anchor" alt="Tailwind CSS Navbar component" src={`${user.photoURL}`} />
-                        <Tooltip
-                            key={place}
-                            anchorSelect="#my-tooltip-anchor"
-                            content={`${user.displayName}!`}
-                            place={place}
-                        />
-                    </div>
-                </div>
-                <ul tabIndex={0} className="mt-3 p-3 gap-3 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                    <li>
-                        <Link to={'/updateProfile'}>
-                            Update Profile
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to={'/viewProfile'}>
-                            View Profile
-                        </Link>
-                    </li>
-                    <li><button onClick={handleLogout} className='btn btn-outline'>Logout</button></li>
-                </ul>
-            </div>
-        </>
-    );
-
     const drawer = (
         <>
             <div className="drawer drawer-end">
                 <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content">
-                    {/* Page content here */}
-                    <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary">Open drawer</label>
+                <div className="drawer-content btn btn-ghost btn-circle avatar">
+                    <label htmlFor="my-drawer-4" className="drawer-button w-10 rounded-full overflow-hidden">
+                        <img className='overflow-hidden' id="my-tooltip-anchor" alt="Tailwind CSS Navbar component" src={`${user?.photoURL}`} />
+                        <Tooltip
+                            key={place}
+                            anchorSelect="#my-tooltip-anchor"
+                            content={`${user?.displayName}!`}
+                            place={place}
+                        />
+                    </label>
                 </div>
-                <div className="drawer-side">
+                <div className="z-10 drawer-side">
                     <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-                        {/* Sidebar content here */}
-                        <li><a>Sidebar Item 1</a></li>
-                        <li><a>Sidebar Item 2</a></li>
+                    <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content gap-3">
+                        <li className='mt-3 w-full rounded-full flex justify-center items-center'>
+                            <img className='overflow-hidden rounded-full w-26' id="my-tooltip-anchor" alt="UserProfile" src={`${user?.photoURL}`} />
+                        </li>
+                        <li className='text-lg mb-3 flex justify-center items-center'>{user?.displayName}</li>
+                        <li className='bg-orange-200 rounded-md hover:bg-orange-100'>
+                            <Link to={'/updateProfile'}>
+                                Update Profile
+                            </Link>
+                        </li>
+                        <li className='bg-orange-200 rounded-md hover:bg-orange-100'>
+                            <Link to={'/viewProfile'}>
+                                View Profile
+                            </Link>
+                        </li>
+                        <li className='rounded-md hover:bg-orange-100'><button onClick={handleLogout} className='btn btn-outline text-white font-exo text-lg bg-orange-600 hover:bg-orange-400'>Logout</button></li>
                     </ul>
                 </div>
             </div>
         </>
     )
+    const navEnd = (
+        <>
+            <div className="dropdown dropdown-end">
+                {drawer}
+            </div>
+        </>
+    );
+
     const login = (
         <Link to={'/authenticate'}>
             <button className='btn btn-accent'>Login</button>
@@ -103,7 +99,6 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 <div className='flex justify-center items-center gap-3'>
-                    {drawer}
                     {
                         user ? navEnd : login
                     }
