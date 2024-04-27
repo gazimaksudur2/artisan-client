@@ -5,6 +5,8 @@ import { Tooltip } from 'react-tooltip';
 
 const Navbar = () => {
     const { user, setUser, logOut } = useContext(AuthContext);
+    // const [theme, setTheme] = useState('light')
+    let theme = 'light';
     // const user = null;
 
     const handleLogout = () => {
@@ -15,6 +17,20 @@ const Navbar = () => {
             })
     }
 
+    const handleTheme = e =>{
+        // value="synthwave"
+        const value = e.target.checked;
+        // console.log(value, new Date());
+        if(value){
+            // setTheme('dim');
+            theme = 'dark';
+        }else{
+            // setTheme('light');
+            theme = 'light';
+        }
+        const doc = document.querySelector('html');
+        doc.setAttribute('data-theme', theme);
+    }
     const navLinks = (
         <>
             <li><NavLink to={'/'} className={({ isActive }) => isActive ? 'border-b-4 border-orange-700  py-2 font-semibold font-open' : ''}>Home</NavLink></li>
@@ -44,9 +60,17 @@ const Navbar = () => {
                     <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content gap-3">
                         <li className='mt-3 w-full rounded-full flex justify-center items-center'>
-                            <img className='overflow-hidden rounded-full w-26' id="my-tooltip-anchor" alt="UserProfile" src={`${user?.photoURL}`} />
+                            <img className='overflow-hidden rounded-full max-w-28' id="my-tooltip-anchor" alt="UserProfile" src={`${user?.photoURL}`} />
                         </li>
                         <li className='text-lg mb-3 flex justify-center items-center'>{user?.displayName}</li>
+                        <li className='rounded-md flex flex-col justify-center items-center'>
+                            <h2 className='text-lg font-mplus font-medium active:bg-none'>Choose Your Theme</h2>
+                            <label className="flex cursor-pointer gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="5" /><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" /></svg>
+                                <input onClick={handleTheme} type="checkbox" className="toggle theme-controller" />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                            </label>
+                        </li>
                         <li className='bg-orange-200 rounded-md hover:bg-orange-100'>
                             <Link to={'/updateProfile'}>
                                 Update Profile

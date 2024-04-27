@@ -1,8 +1,8 @@
 const MyCraftSection = () => {
     return (
-        <div className='px-[10%] space-y-4 mb-10 flex flex-col justify-center items-center text-center'>
-            <h2 className='text-2xl font-exo font-semibold'>A Celebration of Creativity</h2>
-            <p className='font-open'>Step into Artisan Haven, where creativity knows no bounds. Immerse yourself in a vibrant world of artistic expression, where every stroke of the brush, every thread woven, and every sculpture crafted tells a unique story. Our gallery showcases the diverse talents of local and international artisans, offering a kaleidoscope of colors, textures, and forms that captivate the senses and ignite the imagination.</p>
+        <div className='w-[90%] mx-auto px-[10%] space-y-4 mb-10 flex flex-col justify-center items-center text-center'>
+            <h2 className='text-3xl font-exo font-bold'>Textile Treasures: Explore Our Craft Collection</h2>
+            <p className='font-open'>Welcome to Textile Treasures, where every thread tells a story. Dive into our curated collection of textile crafts, handcrafted with love and passion by artisans from around the world. From intricately embroidered fabrics to vibrant handwoven tapestries, our store showcases the rich heritage and artistry of textile craftsmanship.</p>
         </div>
     );
 };

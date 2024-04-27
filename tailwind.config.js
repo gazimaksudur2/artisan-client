@@ -4,6 +4,9 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  daisyui: {
+    themes: ["light", "dark", "cupcake", "dim", "sunset"],
+  },
   theme: {
     extend: {
       fontFamily: {

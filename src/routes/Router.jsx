@@ -69,8 +69,9 @@ const router = createBrowserRouter([
                 element: <AddCraft/>,
             },
             {
-                path: '/secondary/update',
+                path: '/secondary/update/:id',
                 element: <UpdateCraft/>,
+                loader: ({params})=>fetch(''),
             },
             {
                 path: '/secondary/view/:id',
