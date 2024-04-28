@@ -1,27 +1,7 @@
 import { useLoaderData } from 'react-router-dom';
 
 const ViewCraft = () => {
-    // const craft = useLoaderData();
-    const craft = {
-        id: '1',
-        url: 'https://img.freepik.com/premium-photo/plant-hanging-from-rope-with-plant-hanging-from-it_1020495-371428.jpg?w=740',
-        name: 'PatchWork Quilting',
-        subcatagory: 'Quilting',
-        description: 'Technique involving sewing together smaller pieces of fabric to form a larger design.',
-        price: 60000,
-        rating: 4.8,
-        processing_time: '20,December,2022',
-        customization: 'yes',
-        stock_status: 'available',
-        provided_by: 'Gazi Ahmadullah',
-        provider_email: 'ahmadullah42@gmail.com',
-    }
-
-    const mappedArray = Object.entries(craft).map(([key, value]) => {
-        return { key, value }; // Manipulate value or key as needed
-      });
-
-    //   console.log(mappedArray.slice(3,11));
+    const craft = useLoaderData();
 
     return (
         <div className="my-10 w-[80%] mx-auto bg-gradient-to-br to-orange-300 from-yellow-300 px-3 py-16 rounded-2xl flex flex-col justify-center items-center gap-[10%]">
@@ -41,10 +21,10 @@ const ViewCraft = () => {
                         </thead>
                         <tbody>
                             {
-                                mappedArray.slice(3,12).map((item,idx)=>(<tr className='hover flex justify-between items-center' key={idx}>
-                                    <td>{item.key}</td>
-                                    <td>{item.value}</td>
-                                </tr>))
+                                // mappedArray.slice(3,12).map((item,idx)=>(<tr className='hover flex justify-between items-center' key={idx}>
+                                //     <td>{item.key}</td>
+                                //     <td>{item.value}</td>
+                                // </tr>))
                             }
                         </tbody>
                     </table>

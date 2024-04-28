@@ -14,6 +14,8 @@ import SecondaryCraft from "../pages/MyCraft/SecondaryCraft";
 import AddCraft from "../pages/MyCraft/AddCraft";
 import UpdateCraft from "../pages/MyCraft/UpdateCraft";
 import ViewCraft from "../pages/ViewCraft/ViewCraft";
+import Loader from "../components/Loader";
+import Spinner from "../components/Spinner";
 
 const router = createBrowserRouter([
     {
@@ -27,16 +29,20 @@ const router = createBrowserRouter([
             },
             {
                 path: '/allcrafts',
-                element: <AllCrafts/>
+                element: <AllCrafts/>,
+                loader: ()=> fetch(`http://localhost:5000/crafts`),
             },
             {
                 path: '/mycrafts',
                 element: <PrivateRouter><MyCraft/></PrivateRouter>,
-                // element:<MyCraft/>,
             },
             {
                 path: '/about',
                 element: <About/>,
+            },
+            {
+                path: 'loading2',
+                element: <Spinner/>
             }
         ]
     },
@@ -61,6 +67,10 @@ const router = createBrowserRouter([
         errorElement: <NotFound/>
     },
     {
+        path: '/loading',
+        element: <Loader/>,
+    },
+    {
         path: '/secondary',
         element: <SecondaryCraft/>,
         children: [
@@ -71,12 +81,12 @@ const router = createBrowserRouter([
             {
                 path: '/secondary/update/:id',
                 element: <UpdateCraft/>,
-                loader: ({params})=>fetch(''),
+                loader: ({params})=>fetch(`http://localhost:5000/crafts/${params.id}`),
             },
             {
                 path: '/secondary/view/:id',
                 element: <ViewCraft/>,
-                loader: ({params})=>fetch(''),
+                loader: ({params})=>fetch(`http://localhost:5000/crafts/${params.id}`),
             }
         ]
     }

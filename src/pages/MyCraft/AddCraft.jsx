@@ -1,12 +1,16 @@
 import Swal from 'sweetalert2'
 import { ScrollRestoration, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const AddCraft = () => {
     const navigate = useNavigate();
+    const { user } = useContext(AuthContext);
 
     const navi = () => {
         navigate('/');
     }
+
     const handleSubmit = e => {
         e.preventDefault();
         const targ = e.target;
@@ -19,26 +23,31 @@ const AddCraft = () => {
         const price = form.get('price');
         const url = form.get('url');
         const brief = form.get('brief');
+        const provider = user.displayName;
+        const provider_email = user.email;
+        const processing_time = new Date();
 
         console.log(name, subcategory, rating, stock, customization, brief, price, url);
 
-        // fetch('http://localhost:5500/crafts', {
-        //     method: 'POST',
-        //     headers: { 'content-type': 'application/json' },
-        //     body: JSON.stringify({ name, subcategory, rating, stock, customization, brief, price, url }),
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         // console.log(data);
-        //         if (data.insertedId) {
-        //             Swal.fire({
-        //                 title: "Good job!",
-        //                 text: "Craft Added successfully!!!",
-        //                 icon: "success"
-        //             });
-        //         }
-        //         // targ.reset(); something changed
-        //     })
+        fetch('http://localhost:5000/crafts', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({ name, subcategory, rating, stock, customization, brief, price, url, provider, provider_email, processing_time }),
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: "Good job!",
+                        text: "Craft Added successfully!!!",
+                        icon: "success"
+                    });
+                }
+                // targ.reset(); something changed
+            })
     }
     return (
         <div className='bg-orange-100 text-center space-y-3 my-5 p-10 rounded-3xl flex flex-col justify-center items-center'>
@@ -75,7 +84,7 @@ const AddCraft = () => {
                         <span className="label-text">Stock Status</span>
                     </div>
                     <select name="stock" className="select select-bordered w-full">
-                        <option disabled selected></option>
+                        {/* <option disabled selected></option> */}
                         <option>In Stock</option>
                         <option>Made to Order</option>
                     </select>                
@@ -85,7 +94,7 @@ const AddCraft = () => {
                         <span className="label-text">Customization</span>
                     </div>
                     <select name="customization" className="select select-bordered w-full">
-                        <option disabled selected></option>
+                        {/* <option disabled selected></option> */}
                         <option>Yes</option>
                         <option>No</option>
                     </select>

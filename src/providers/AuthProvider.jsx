@@ -33,28 +33,34 @@ const AuthProvider = ({children}) => {
     }
 
     const logIn = (email, password)=>{
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
     const logOut = ()=>{
+        setLoading(true);
         return signOut(auth);
     }
 
     const googleLogin = ()=>{
+        setLoading(true);
         return signInWithPopup(auth, googleProvider);
     }
 
     const githubLogin = ()=>{
+        setLoading(true);
         return signInWithPopup(auth, githubProvider);
     }
 
     const twitterLogin = ()=>{
+        setLoading(true);
         return signInWithPopup(auth, twitterProvider);
     }
 
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, cur_user=>{
             setUser(cur_user);
+            setLoading(false);
         });
         return ()=>{
             unsubscribe()

@@ -10,7 +10,7 @@ import { useLocation } from "react-router-dom/dist";
 const Login = () => {
     const reg_here = "Don't have an Account?";
     const [showPass, setShowPass] = useState(false);
-    const { logIn, googleLogin, githubLogin, twitterLogin } = useContext(AuthContext);
+    const { logIn, googleLogin, githubLogin, twitterLogin, setLoading } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -22,23 +22,27 @@ const Login = () => {
     }
 
     const handleGoogle = () =>{
+        navigate('/loading');
         googleLogin()
         .then(res=>console.log(res))
         .catch(error=>console.log(error))
     }
 
     const handleGithub = () =>{
+        navigate('/loading');
         githubLogin()
         .then(res=>console.log(res.user))
         .catch(error=>console.log(error.message))
     }
 
     const handleTwitter = () =>{
+        navigate('/loading');
         twitterLogin()
         .then(res=>console.log(res.user))
         .catch(error=>console.log(error.message))
     }
     const handleSubmit = e =>{
+        navigate('/loading');
         e.preventDefault();
         const targ = e.target;
         const form = new FormData(targ);
@@ -69,6 +73,7 @@ const Login = () => {
                 footer: error.message,
               });
             //   console.log(error.message);
+            navigate('/authenticate');
         })
     }
     return (

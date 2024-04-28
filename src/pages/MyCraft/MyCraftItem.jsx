@@ -1,21 +1,68 @@
 import { Link, useLocation } from "react-router-dom";
+import Swal from "sweetalert2";
 
-const MyCraftItem = () => {
-    const id = '1';
+const MyCraftItem = ({ craft }) => {
     const location = useLocation();
+
+    const handleDelete = (id) => {
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "btn btn-success",
+                cancelButton: "btn btn-danger"
+            },
+            buttonsStyling: false
+        });
+        swalWithBootstrapButtons.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/crafts/${id}`, {
+                    method: 'delete'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deleteCount > 0) {
+                            swalWithBootstrapButtons.fire({
+                                title: "Deleted!",
+                                text: "Your Craft has been deleted!!",
+                                icon: "success"
+                            });
+                        }
+                    })
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire({
+                    title: "Cancelled",
+                    text: "Your imaginary Craft is safe :)",
+                    icon: "error"
+                });
+            }
+        });
+    }
+
+
     return (
         <div className="backdrop-blur-lg rounded-lg shadow-xl">
             <div className="card w-96 bg-white">
                 <figure className="rounded-t-xl">
-                    <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" className="" />
+                    <img src={craft.url} alt="Shoes" className="w-full h-56 object-cover" />
                 </figure>
                 <div className="card-body relative items-center text-start bg-gradient-to-bl from-orange-100 to-yellow-400 backdrop-blur rounded-b-xl">
-                    <p className="absolute font-mplus font-medium text-lg bg-green-400 p-2 rounded-md -top-5 right-5">category</p>
-                    <h2 className="card-title text-start w-full">Quilting</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                    <div className="card-actions flex w-full justify-between ">
-                        <Link state={location.pathname} to={`/secondary/update/${id}`}><button className="btn bg-orange-500 text-white border-2 border-orange-700 hover:bg-orange-400">Update Details</button></Link>
-                        <Link state={location.pathname} to={`/secondary/view/${id}`}><button className="btn bg-orange-500 text-white border-2 border-orange-700 hover:bg-orange-400">View Details</button></Link>
+                    <p className="absolute font-mplus font-medium text-lg bg-green-400 p-2 rounded-md -top-5 right-5">{craft.subcategory}</p>
+                    <h2 className="card-title text-start w-full">{craft?.name}</h2>
+                    <p>{craft?.brief.slice(0, 50) + "..."}</p>
+                    <div className="card-actions w-full grid grid-cols-2 justify-items-center">
+                        <Link state={location.pathname} to={`/secondary/update/${craft._id}`}><button className="btn bg-orange-500 text-white border-2 border-orange-700 hover:bg-orange-400">Update Details</button></Link>
+                        <Link state={location.pathname} to={`/secondary/view/${craft._id}`}><button className="btn bg-orange-500 text-white border-2 border-orange-700 hover:bg-orange-400">View Details</button></Link>
+                        <button onClick={() => handleDelete(craft._id)} className="btn col-span-2 bg-red-500 text-white border-2 border-red-700 hover:bg-orange-400">Delete Craft</button>
                     </div>
                 </div>
             </div>
