@@ -30,17 +30,18 @@ const UpdateProfile = () => {
     }
 
     return (
-        <div className="h-full w-full">
+        <div className="h-screen w-full relative bg-update bg-cover bg-no-repeat backdrop-blur-3xl">
+            <div className="absolute -z-30 inset-0 bg-black opacity-50"></div>
             <form
-                className="h-full lg:w-[50%] mx-auto flex flex-col justify-center items-center card-body"
+                className="h-full lg:w-[50%] mx-auto flex flex-col justify-center items-center card-body text-white"
                 onSubmit={handleSubmit(onSubmit)}
             >
-                <h2 className="font-ubuntu font-semibold text-xl text-[#1d2030]">
+                <h2 className="font-mplus font-semibold text-3xl text-orange-500">
                     Update your Profile
                 </h2>
                 <div className="form-control w-full">
                     <label className="label">
-                        <span className="label-text">Name</span>
+                        <span className="label-text text-orange-300 text-lg font-medium">Name</span>
                     </label>
                     <input
                         type="text"
@@ -52,7 +53,7 @@ const UpdateProfile = () => {
                 </div>
                 <div className="form-control w-full">
                     <label className="label">
-                        <span className="label-text">Email</span>
+                        <span className="label-text text-orange-300 text-lg font-medium">Email</span>
                     </label>
                     <input
                         type="email"
@@ -65,7 +66,7 @@ const UpdateProfile = () => {
                 </div>
                 <div className="form-control w-full">
                     <label className="label">
-                        <span className="label-text">Photo URL</span>
+                        <span className="label-text text-orange-300 text-lg font-medium">Photo URL</span>
                     </label>
                     <input
                         type="text"
@@ -79,7 +80,7 @@ const UpdateProfile = () => {
                     <button className="btn btn-primary">Confirm Update</button>
                     <label className="label w-full flex justify-center">
                         <Link to={"/"}>
-                            <button className="label-text-alt link link-hover">Go Back Home</button>                            
+                            <button className="label-text-alt link link-hover text-lg text-red-600">Go Back Home</button>                            
                         </Link>
                     </label>
                 </div>

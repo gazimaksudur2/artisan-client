@@ -14,7 +14,7 @@ import { Keyboard, Pagination, Navigation} from 'swiper/modules';
 
 const Banner = () => {
     return (
-        <div className='h-[100vh] w-full mt-5 mb-16 bg-red-400'>
+        <div className='h-[100vh] w-full mt-5 mb-16'>
           <Swiper
             slidesPerView={1}
             spaceBetween={50}

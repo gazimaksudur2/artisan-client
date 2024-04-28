@@ -17,7 +17,7 @@ export default {
       backgroundImage: {
         'auth1': "url('https://img.freepik.com/premium-photo/closeup-within-textile-manufacturing-industry_988095-5955.jpg?w=1060')",
         'auth2': "url('https://img.freepik.com/premium-photo/yarn-cotton-textile-mill_87720-111556.jpg?w=1060')",
-        'footer-texture': "url('/img/footer-texture.png')",
+        'update': "url('https://img.freepik.com/premium-photo/high-angle-knitting-items-arrangement_23-2148859202.jpg?w=1060')",
       }
     },
   },
