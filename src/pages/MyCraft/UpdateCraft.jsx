@@ -35,7 +35,7 @@ const UpdateCraft = () => {
                 if (data.modifiedCount>0) {
                     Swal.fire({
                         title: "Good job!",
-                        text: "Craft Added successfully!!!",
+                        text: "Your Craft Updated successfully!!!",
                         icon: "success"
                     });
                     navigate('/mycrafts')
@@ -43,7 +43,8 @@ const UpdateCraft = () => {
                     Swal.fire({
                         title: "ERROR!!",
                         text: "Craft update Attempt Failed!!!",
-                        icon: "error"
+                        icon: "error",
+                        footer: "Nothing Changed!!!"
                     });
                 }
             })

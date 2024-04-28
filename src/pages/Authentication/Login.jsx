@@ -6,11 +6,12 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { FaEye } from "react-icons/fa6";
 import Swal from "sweetalert2";
 import { useLocation } from "react-router-dom/dist";
+import { Typewriter } from 'react-simple-typewriter';
 
 const Login = () => {
     const reg_here = "Don't have an Account?";
     const [showPass, setShowPass] = useState(false);
-    const { logIn, googleLogin, githubLogin, twitterLogin, setLoading } = useContext(AuthContext);
+    const { logIn, googleLogin, githubLogin, twitterLogin } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -24,22 +25,40 @@ const Login = () => {
     const handleGoogle = () =>{
         navigate('/loading');
         googleLogin()
-        .then(res=>console.log(res))
-        .catch(error=>console.log(error))
+        .then(res=>{
+            console.log(res.user);
+            navigate('/');
+        })
+        .catch(error=>{
+            console.log(error.message);
+            navigate('/authenticate');
+        })
     }
 
     const handleGithub = () =>{
         navigate('/loading');
         githubLogin()
-        .then(res=>console.log(res.user))
-        .catch(error=>console.log(error.message))
+        .then(res=>{
+            console.log(res.user);
+            navigate('/');
+        })
+        .catch(error=>{
+            console.log(error.message);
+            navigate('/authenticate');
+        })
     }
 
     const handleTwitter = () =>{
         navigate('/loading');
         twitterLogin()
-        .then(res=>console.log(res.user))
-        .catch(error=>console.log(error.message))
+        .then(res=>{
+            console.log(res.user);
+            navigate('/');
+        })
+        .catch(error=>{
+            console.log(error.message);
+            navigate('/authenticate');
+        })
     }
     const handleSubmit = e =>{
         navigate('/loading');
@@ -81,7 +100,16 @@ const Login = () => {
             <ScrollRestoration/>
             <div className="absolute w-full -z-20 inset-0 bg-black opacity-50 min-h-full"></div>
             <div className='w-[45%] p-10 rounded-md backdrop-blur flex flex-col justify-center items-center text-right gap-4'>
-                <h1 className="font-exo font-semibold text-4xl text-white w-full text-right">A Celebration of Creativity</h1>
+                <h1 className="font-exo font-semibold text-4xl text-white w-full text-right">A Celebration of <span className="text-orange-500">
+                    <Typewriter
+                            words={['Creativity', 'imagination', 'Critical Thinking', 'Cognitive Ability', 'Emotion', 'Tactile Sensation!']}
+                            loop={5}
+                            cursor
+                            cursorStyle='_'
+                            typeSpeed={70}
+                            deleteSpeed={50}
+                            delaySpeed={1000}
+                        /></span></h1>
                 <p className="text-gray-300 text-lg">Our gallery showcases the diverse talents of local and international artisans, offering a kaleidoscope of colors, textures, and forms that captivate the senses and ignite the imagination. </p>
                 <Link to={'/'} className="btn w-[40%] flex justify-center items-center"><IoArrowBackSharp size={20}/> <p>Go Back Home</p></Link>
             </div>

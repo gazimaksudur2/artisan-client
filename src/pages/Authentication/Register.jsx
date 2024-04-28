@@ -5,6 +5,7 @@ import { Link, ScrollRestoration, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { useLocation } from "react-router-dom/dist";
+import { Typewriter } from 'react-simple-typewriter'
 
 const Register = () => {
     const reg_here = "Already have an Account?";
@@ -13,38 +14,56 @@ const Register = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const handleGoogle = () => {
-        googleLogin()
-            .then(res => {
-                console.log(res.user);
-            })
-            .catch(error => console.log(error.message))
-    }
 
-    const tractPrivate = (address)=>{
+    const tractPrivate = (address) => {
         // console.log('navigating --> ',address, 'and location in state --> ', location?.state);
-        navigate(address,{
+        navigate(address, {
             state: location?.state,
         });
     }
 
+    const handleGoogle = () => {
+        navigate('/loading');
+        googleLogin()
+            .then(res => {
+                console.log(res.user);
+                navigate('/');
+            })
+            .catch(error => {
+                console.log(error.message);
+                navigate('/authenticate/register');
+            })
+    }
+
     const handleGithub = () => {
+        navigate('/loading');
         githubLogin()
             .then(res => {
                 console.log(res.user);
+                navigate('/');
             })
-            .catch(error => console.log(error.message))
+            .catch(error => {
+                console.log(error.message);
+                navigate('/authenticate/register');
+            })
     }
+
     const handleTwitter = () => {
+        navigate('/loading');
         twitterLogin()
             .then(res => {
                 console.log(res.user);
+                navigate('/');
             })
-            .catch(error => console.log(error.message))
+            .catch(error => {
+                console.log(error.message);
+                navigate('/authenticate/register');
+            })
     }
 
 
     const handleSubmit = e => {
+        navigate('/loading');
         e.preventDefault();
         const form = new FormData(e.target);
         const name = form.get('name');
@@ -66,11 +85,11 @@ const Register = () => {
         if (password.length < 6 || (!/[A-Z]/.test(password)) || (!/[a-z]/.test(password))) {
             Swal.fire({
                 icon: "error",
-                title: "Password Constraint failed Failed!!!",
-                showConfirmButton: false,
-                timer: 3000,
-                footer: error,
+                title: "Password Constraint Failed!!!",
+                text: "Enter a strong password..",
+                footer: error
             });
+            navigate('/authenticate/register');
             return;
         }
 
@@ -84,7 +103,7 @@ const Register = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                navigate(location?.state?location.state:'/');
+                navigate(location?.state ? location.state : '/');
                 console.log(res.user);
             })
             .catch(err => {
@@ -96,6 +115,7 @@ const Register = () => {
                     footer: err.message,
                 });
                 console.log(err.message);
+                navigate('/authenticate/register');
             })
     }
     return (
@@ -103,7 +123,16 @@ const Register = () => {
             <ScrollRestoration />
             <div className="absolute w-full -z-20 inset-0 bg-black opacity-50 min-h-full"></div>
             <div className='w-[45%] p-10 rounded-md backdrop-blur flex flex-col justify-center items-center text-left gap-4'>
-                <h1 className="font-exo font-semibold text-4xl text-white w-full text-left">A Celebration of Creativity</h1>
+                <h1 className="font-exo font-semibold text-4xl text-white w-full text-left">A Celebration of <span className="text-orange-500">
+                    <Typewriter
+                            words={['Creativity', 'imagination', 'Critical Thinking', 'Cognitive Ability', 'Emotion', 'Tactile Sensation!']}
+                            loop={5}
+                            cursor
+                            cursorStyle='_'
+                            typeSpeed={70}
+                            deleteSpeed={50}
+                            delaySpeed={1000}
+                        /></span></h1>
                 <p className="text-gray-300 text-lg">Step into Artisan Haven, where creativity knows no bounds. Immerse yourself in a vibrant world of artistic expression, where every stroke of the brush, every thread woven, and every sculpture crafted tells a unique story.</p>
                 <Link to={'/'} className="btn w-[40%] flex justify-center items-center"><IoArrowBackSharp size={20} /> <p>Go Back Home</p></Link>
             </div>
@@ -142,7 +171,7 @@ const Register = () => {
                         <button onClick={handleGithub} className="btn text-white flex justify-center items-center gap-2 bg-[#171515]"><FaGithub size={20} /> Github</button>
                         <button onClick={handleTwitter} className="btn text-white flex justify-center items-center gap-2 bg-blue-600"><FaTwitter size={20} /> Twitter</button>
                     </div>
-                    <p className="">{reg_here}<button onClick={()=>tractPrivate('/authenticate')} className="hover:text-blue-600 hover:underline hover:cursor-pointer">Login here</button></p>
+                    <p className="">{reg_here}<button onClick={() => tractPrivate('/authenticate')} className="hover:text-blue-600 hover:underline hover:cursor-pointer">Login here</button></p>
                 </div>
             </div>
         </div>

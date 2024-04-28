@@ -22,6 +22,6 @@ f. Macrame
 
 * Implemented react packages for challenging part
 a. Lottie React --> 
-b. React-simple-typewriter --> 
+b. React-simple-typewriter --> Implemented on login and register page title description
 c. React Awesome reveal -->
 d. React-tooltip --> implemented on hover user profile picture
