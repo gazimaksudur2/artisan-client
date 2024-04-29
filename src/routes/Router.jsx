@@ -17,6 +17,7 @@ import ViewCraft from "../pages/ViewCraft/ViewCraft";
 import Loader from "../components/Loader";
 import Spinner from "../components/Spinner";
 import CategoryPage from "../pages/Category/CategoryPage";
+import Exhibition from "../pages/Exhibition/Exhibition";
 
 const router = createBrowserRouter([
     {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
             {
                 path: '/mycrafts',
                 element: <PrivateRouter><MyCraft/></PrivateRouter>,
+            },
+            {
+                path: '/exhibition',
+                element: <Exhibition/>,
             },
             {
                 path: '/about',
@@ -78,7 +83,7 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <AddCraft/>,
+                element: <PrivateRouter><AddCraft/></PrivateRouter>,
             },
             {
                 path: '/secondary/update/:id',

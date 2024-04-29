@@ -35,8 +35,8 @@ const AddCraft = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
-                if (data.insertedCount > 0) {
+                // console.log(data);
+                if (data.insertedId) {
                     Swal.fire({
                         title: "Good job!",
                         text: "Your Craft Updated successfully!!!",
@@ -63,7 +63,7 @@ const AddCraft = () => {
                     <div className="label">
                         <span className="label-text">Item Name</span>
                     </div>
-                    <input name="name" type="text" placeholder="Enter Craft Name" className="input input-bordered w-full" />
+                    <input name="name" type="text" placeholder="Enter Craft Name" className="input input-bordered w-full" required/>
                 </label>
                 <label className="form-control w-full">
                     <div className="label">
@@ -84,13 +84,13 @@ const AddCraft = () => {
                     <div className="label">
                         <span className="label-text">Rating</span>
                     </div>
-                    <input name="rating" type="text" placeholder="Enter Craft Rating" className="input input-bordered w-full" />
+                    <input name="rating" type="text" placeholder="Enter Craft Rating" className="input input-bordered w-full" required/>
                 </label>
                 <label className="form-control w-full">
                     <div className="label">
                         <span className="label-text">Price</span>
                     </div>
-                    <input name="price" type="text" placeholder="Enter Craft Price" className="input input-bordered w-full" />
+                    <input name="price" type="text" placeholder="Enter Craft Price" className="input input-bordered w-full" required/>
                 </label>
                 <label className="form-control w-full">
                     <div className="label">
@@ -117,7 +117,7 @@ const AddCraft = () => {
                     <div className="label">
                         <span className="label-text">Photo</span>
                     </div>
-                    <input name="url" type="text" placeholder="Enter Photo URL" className="input input-bordered w-full" />
+                    <input name="url" type="text" placeholder="Enter Photo URL" className="input input-bordered w-full" required/>
                 </label>
                 <label className="col-span-2 w-full">
                     <div className="label">

@@ -36,6 +36,7 @@ const Navbar = () => {
             <li><NavLink to={'/'} className={({ isActive }) => isActive ? 'border-b-4 border-orange-700  py-2 font-semibold font-open' : ''}>Home</NavLink></li>
             <li><NavLink to={'/allcrafts'} className={({ isActive }) => isActive ? 'border-b-4 border-orange-700  py-2 font-semibold font-open' : ''}>All Crafts</NavLink></li>
             <li><NavLink to={'/mycrafts'} className={({ isActive }) => isActive ? 'border-b-4 border-orange-700  py-2 font-semibold font-open' : ''}>MY Crafts</NavLink></li>
+            <li><NavLink to={'/exhibition'} className={({ isActive }) => isActive ? 'border-b-4 border-orange-700  py-2 font-semibold font-open' : ''}>Exhibition</NavLink></li>
             <li><NavLink to={'/about'} className={({ isActive }) => isActive ? 'border-b-4 border-orange-700  py-2 font-semibold font-open' : ''}>About</NavLink></li>
         </>
     );
