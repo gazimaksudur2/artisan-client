@@ -17,14 +17,14 @@ const Navbar = () => {
             })
     }
 
-    const handleTheme = e =>{
+    const handleTheme = e => {
         // value="synthwave"
         const value = e.target.checked;
         // console.log(value, new Date());
-        if(value){
+        if (value) {
             // setTheme('dim');
             theme = 'dark';
-        }else{
+        } else {
             // setTheme('light');
             theme = 'light';
         }
@@ -52,7 +52,7 @@ const Navbar = () => {
                         <Tooltip
                             key={place}
                             anchorSelect="#my-tooltip-anchor"
-                            content={`${user?.displayName}!`}
+                            content={`${user?.displayName}`}
                             place={place}
                         />
                     </label>
@@ -103,14 +103,20 @@ const Navbar = () => {
     );
     return (
         <div className="w-[95%] mx-auto my-4 shadow navbar bg-orange-50">
-            <div className="navbar-start">
+            <div className="navbar-start pl-3 flex gap-4">
                 <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                    <div className="drawer">
+                        <input id="my-drawer" type="checkbox" className="drawer-toggle " />
+                        <div tabIndex={0} htmlFor="my-drawer" role="button" className="btn btn-ghost lg:hidden drawer-content">
+                            <label htmlFor="my-drawer" className="btn drawer-button"><svg xmlns="http://www.w3.org/2000/svg" className="drawer-button h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg></label>
+                        </div>
+                        <div className="z-10 drawer-side">
+                            <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
+                            <ul className="menu p-4 w-40 min-h-full bg-base-200 text-base-content">
+                                {navLinks}
+                            </ul>
+                        </div>
                     </div>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                        {navLinks}
-                    </ul>
                 </div>
                 <div className='btn btn-ghost flex justify-center items-center'>
                     <img className='w-8' src="https://cdn-icons-png.flaticon.com/512/2970/2970785.png" alt="logo img" />
