@@ -21,6 +21,12 @@ f. Macrame
 
 * Five Bullet feature points
 
+--> This is an Textile art and craft gallery so here people can view various types of arts and crafts.
+--> Anyone can register here with credentials or can sign in with their google or github accounts.
+--> after registering they will have access to add new crafts to our gallery.
+--> And he will be able to edit update or delete his created crafts from his account in our platform.
+--> Another mind blowing feature is category based crafts showing there he will experience with an awesome work.
+
 
 * Implemented react packages for challenging part
 a. Lottie React --> 
