@@ -3,6 +3,7 @@ import { Rating } from "primereact/rating";
 
 const ViewCraft = () => {
     const craft = useLoaderData();
+    // console.log(craft.user_url);
 
     return (
         <div className="my-10 w-[80%] mx-auto bg-gradient-to-br to-orange-300 via-yellow-200 from-yellow-300 px-3 py-16 rounded-2xl flex flex-col justify-center items-center gap-[10%]">
@@ -16,7 +17,7 @@ const ViewCraft = () => {
                         <h2 className='font-exo font-medium text-lg'>Provider Info</h2>
                         <div className='flex justify-start items-center gap-4'>
                             <label>
-                                <img className="w-16 h-16 rounded-full" src={craft.url} alt="Cups" />
+                                <img className="w-16 h-16 rounded-full" src={craft.user_url} alt="no Image" />
                             </label>
                             <div className='font-mplus space-y-1'>
                                 <h3 className='font-medium'>{craft.provider}</h3>
@@ -31,9 +32,6 @@ const ViewCraft = () => {
                             <div className='font-mplus space-y-1'>
                                 <h3 className='font-medium flex gap-3'>Type: <span className='font-exo font-normal'>Textile Crafts</span></h3>
                                 <h3 className='font-medium flex gap-3'>SubcategoryType: <span className='font-exo font-normal'>{craft.subcategory}</span></h3>
-                            </div>
-                            <div>
-
                             </div>
                         </div>
                     </div>

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import MyCraftItem from "./MyCraftItem";
 import MyCraftSection from "./MyCraftSection";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const MyCraft = () => {
     const { user } = useContext(AuthContext);
@@ -28,6 +29,52 @@ const MyCraft = () => {
         // console.log(showCrafts);
     }
 
+    const handleDeleteCraft = (id) => {
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "btn btn-success",
+                cancelButton: "btn btn-danger"
+            },
+            buttonsStyling: false
+        });
+        swalWithBootstrapButtons.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/crafts/${id}`, {
+                    method: 'delete'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deleteCount > 0) {
+                            swalWithBootstrapButtons.fire({
+                                title: "Deleted!",
+                                text: "Your Craft has been deleted!!",
+                                icon: "success"
+                            });
+                        }
+                        setMyCrafts(myCrafts.filter(craft=>craft._id!=id));
+                        setShowCrafts(showCrafts.filter(craft=>craft._id!=id));
+                    })
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire({
+                    title: "Cancelled",
+                    text: "Your imaginary Craft is safe :)",
+                    icon: "error"
+                });
+            }
+        });
+    }
+
     // console.log(myCrafts);
 
     const filteredCraft = <div className="my-10 w-full space-y-4 flex flex-col justify-center items-center">
@@ -50,7 +97,7 @@ const MyCraft = () => {
             }
             <div className="mb-10 grid grid-cols-3 w-[90%] mx-auto justify-items-center content-center gap-8">
                 {
-                    myCrafts && showCrafts.map(craft => <MyCraftItem key={craft._id} craft={craft} />)
+                    myCrafts && showCrafts.map(craft => <MyCraftItem handleDelete={handleDeleteCraft} key={craft._id} craft={craft} />)
                 }
             </div>
         </div>

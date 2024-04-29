@@ -2,55 +2,9 @@ import { CiEdit } from "react-icons/ci";
 import { GrView } from "react-icons/gr";
 import { MdDeleteOutline } from "react-icons/md";
 import { Link, useLocation } from "react-router-dom";
-import Swal from "sweetalert2";
 
-const MyCraftItem = ({ craft }) => {
+const MyCraftItem = ({ craft, handleDelete }) => {
     const location = useLocation();
-
-    const handleDelete = (id) => {
-        const swalWithBootstrapButtons = Swal.mixin({
-            customClass: {
-                confirmButton: "btn btn-success",
-                cancelButton: "btn btn-danger"
-            },
-            buttonsStyling: false
-        });
-        swalWithBootstrapButtons.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonText: "Yes, delete it!",
-            cancelButtonText: "No, cancel!",
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                fetch(`http://localhost:5000/crafts/${id}`, {
-                    method: 'delete'
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data);
-                        if (data.deleteCount > 0) {
-                            swalWithBootstrapButtons.fire({
-                                title: "Deleted!",
-                                text: "Your Craft has been deleted!!",
-                                icon: "success"
-                            });
-                        }
-                    })
-            } else if (
-                result.dismiss === Swal.DismissReason.cancel
-            ) {
-                swalWithBootstrapButtons.fire({
-                    title: "Cancelled",
-                    text: "Your imaginary Craft is safe :)",
-                    icon: "error"
-                });
-            }
-        });
-    }
-
 
     return (
         <div className="backdrop-blur-lg rounded-lg shadow-xl">

@@ -60,4 +60,7 @@ Extra sections options are --->
 3. FAQs.
 4. charts.
 5. About Us.
-6. 
+6. Exhibition.
+7. Gallery.
+8. Achievements.
+9. Recent Fairs.

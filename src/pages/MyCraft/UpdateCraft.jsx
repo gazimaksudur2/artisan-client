@@ -16,8 +16,8 @@ const UpdateCraft = () => {
         const name_form = form.get('name');
         const subcategory_form = form.get('subcategory');
         const rating_form = form.get('rating');
-        const stock_form = form.get('stock')?form.get('stock'):stock;
-        const customization_form = form.get('customization')?form.get('customization'):customization;
+        const stock_form = form.get('stock') ? form.get('stock') : stock;
+        const customization_form = form.get('customization') ? form.get('customization') : customization;
         const price_form = form.get('price');
         const url_form = form.get('url');
         const brief_form = form.get('brief');
@@ -27,19 +27,19 @@ const UpdateCraft = () => {
         fetch(`http://localhost:5000/crafts/${_id}`, {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({ name:name_form, subcategory:subcategory_form, rating:rating_form, stock:stock_form, customization:customization_form, brief:brief_form, price:price_form, url:url_form, provider: user.displayName, provider_email: user.email }),
+            body: JSON.stringify({ name: name_form, subcategory: subcategory_form, rating: rating_form, stock: stock_form, customization: customization_form, brief: brief_form, price: price_form, url: url_form, provider: user.displayName, provider_email: user.email, user_url: user.photoURL }),
         })
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
-                if (data.modifiedCount>0) {
+                if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: "Good job!",
                         text: "Your Craft Updated successfully!!!",
                         icon: "success"
                     });
                     navigate('/mycrafts')
-                }else{
+                } else {
                     Swal.fire({
                         title: "ERROR!!",
                         text: "Craft update Attempt Failed!!!",
@@ -49,7 +49,8 @@ const UpdateCraft = () => {
                 }
             })
     }
-    
+
+    // console.log(user.photoURL);
     return (
         <div className='bg-orange-100 text-center space-y-3 my-5 p-10 rounded-3xl flex flex-col justify-center items-center'>
             <ScrollRestoration />
@@ -88,7 +89,7 @@ const UpdateCraft = () => {
                         <option disabled selected>{stock}</option>
                         <option>In Stock</option>
                         <option>Made to Order</option>
-                    </select>                
+                    </select>
                 </label>
                 <label className="form-control w-full">
                     <div className="label">

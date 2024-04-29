@@ -6,7 +6,7 @@ const CategoryPage = () => {
     const category = location?.state || {};
     const crafts = useLoaderData();
 
-    console.log(crafts);
+    // console.log(crafts);
 
     return (
         <div>
@@ -31,8 +31,8 @@ const CategoryPage = () => {
                     <tbody>
                         {/* row 2 */}
                         {
-                            crafts.map((craft, idx) => (<>
-                                <tr className="hover" key={idx}>
+                            crafts.map((craft) => (<>
+                                <tr className="hover" key={craft._id}>
                                     <th></th>
                                     <th className='text-sm font-normal font-exo'>{craft.name}</th>
                                     <th className='text-sm font-normal font-exo'>{craft.provider}</th>

@@ -7,10 +7,6 @@ const AddCraft = () => {
     const navigate = useNavigate();
     const { user } = useContext(AuthContext);
 
-    const navi = () => {
-        navigate('/');
-    }
-
     const handleSubmit = e => {
         e.preventDefault();
         const targ = e.target;
@@ -26,27 +22,35 @@ const AddCraft = () => {
         const provider = user.displayName;
         const provider_email = user.email;
         const processing_time = new Date();
+        const user_url = user.photoURL;
 
-        console.log(name, subcategory, rating, stock, customization, brief, price, url);
+        // console.log(name, subcategory, rating, stock, customization, brief, price, url, user_url);
 
         fetch('http://localhost:5000/crafts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
             },
-            body: JSON.stringify({ name, subcategory, rating, stock, customization, brief, price, url, provider, provider_email, processing_time }),
+            body: JSON.stringify({ name, subcategory, rating, stock, customization, brief, price, url, provider, provider_email, processing_time, user_url }),
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                if (data.insertedId) {
+                if (data.insertedCount > 0) {
                     Swal.fire({
                         title: "Good job!",
-                        text: "Craft Added successfully!!!",
+                        text: "Your Craft Updated successfully!!!",
                         icon: "success"
                     });
+                    navigate('/mycrafts')
+                } else {
+                    Swal.fire({
+                        title: "ERROR!!",
+                        text: "Craft Creation Attempt Failed!!!",
+                        icon: "error",
+                        footer: "Something went wrong!!!"
+                    });
                 }
-                // targ.reset(); something changed
             })
     }
     return (
@@ -65,7 +69,16 @@ const AddCraft = () => {
                     <div className="label">
                         <span className="label-text">SubCategory</span>
                     </div>
-                    <input name="subcategory" type="text" placeholder="Enter Craft SubCategory" className="input input-bordered w-full" />
+                    {/* <input name="subcategory" type="text" placeholder="Enter Craft SubCategory" className="input input-bordered w-full" /> */}
+                    <select name="subcategory" className="select select-bordered w-full">
+                        {/* <option disabled selected></option> */}
+                        <option>Embroidery</option>
+                        <option>Knitting</option>
+                        <option>Quilting</option>
+                        <option>Beadwork</option>
+                        <option>Tie-Dyeing</option>
+                        <option>Macrame</option>
+                    </select>
                 </label>
                 <label className="form-control w-full">
                     <div className="label">
