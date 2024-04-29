@@ -1,6 +1,18 @@
+import { useEffect, useState } from "react";
 import CategoryCard from "./CategoryCard";
 
 const CraftCategory = () => {
+    const [category, setCategory] = useState(null);
+
+    useEffect(()=>{
+        fetch('roughData.json')
+        .then(res=>res.json())
+        .then(data=>{
+            // console.log(data);
+            setCategory(data);
+        })
+    },[]);
+
     return (
         <div className="flex flex-col justify-center items-center space-y-4">
             <div className="pb-10 flex justify-center items-center gap-3">
@@ -8,12 +20,9 @@ const CraftCategory = () => {
                 <h2 className="font-mplus text-2xl font-semibold">View by Category Clicking on the Cards</h2>
             </div>
             <div className="grid grid-cols-2 gap-10">
-                <CategoryCard />
-                <CategoryCard />
-                <CategoryCard />
-                <CategoryCard />
-                <CategoryCard />
-                <CategoryCard />
+                {
+                    category && category.map(cate=>(<CategoryCard key={cate.id} category={cate}/>))
+                }
             </div>
         </div>
     );

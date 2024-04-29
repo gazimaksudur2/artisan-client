@@ -1,0 +1,51 @@
+[
+    {
+      "id": "1",
+      "name": "Embroidery",
+      "title": "The Art of Embroidery",
+      "state": "/",
+      "url": "https://cdn-icons-png.flaticon.com/128/2769/2769754.png",
+      "description": "Discover the intricate world of Embroidery. From delicate stitches to elaborate designs, explore creativity with needle and thread."
+    },
+    {
+      "id": "2",
+      "name": "Knitting",
+      "title": "Crafting with Knitting & Crocheting",
+      "state": "/",
+      "url": "https://cdn-icons-png.flaticon.com/128/2965/2965865.png",
+      "description": "Unravel creativity with Knitting & Crocheting. Create stylish garments, cozy accessories, and intricate patterns with yarn and needles."
+    },
+    {
+      "id": "3",
+      "name": "Quilting",
+      "title": "Mastering the Art of Quilting",
+      "state": "/",
+      "url": "https://cdn-icons-png.flaticon.com/128/6310/6310490.png",
+      "description": "Enter the realm of Quilting mastery. Piece together fabrics, colors, and patterns to craft timeless and cozy heirlooms."
+    },
+    {
+      "id": "4",
+      "name": "Beadwork",
+      "title": "Exploring the World of Beadwork",
+      "state": "/",
+      "url": "https://cdn-icons-png.flaticon.com/128/4130/4130316.png",
+      "description": "Dive deep into the vibrant world of Beadwork. String together beads of all shapes and sizes to create intricate jewelry and adornments."
+    },
+    {
+      "id": "5",
+      "name": "Tie-Dyeing",
+      "title": "Expressing Creativity through Tie-Dyeing",
+      "state": "/",
+      "url": "https://cdn-icons-png.flaticon.com/128/7385/7385818.png",
+      "description": "Explore the vibrant art of Tie-Dyeing. Twist, fold, and dye fabrics to create unique and colorful expressions of creativity."
+    },
+    {
+      "id": "6",
+      "name": "Macrame",
+      "title": "Crafting Beauty with Macrame",
+      "state": "/",
+      "url": "https://cdn-icons-png.flaticon.com/128/2133/2133936.png",
+      "description": "Master the intricate craft of Macrame. Knot, weave, and create stunning patterns with cords and ropes for beautiful home decor."
+    }
+  ]
+  

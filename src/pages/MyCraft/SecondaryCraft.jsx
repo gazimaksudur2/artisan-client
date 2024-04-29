@@ -6,7 +6,8 @@ const SecondaryCraft = () => {
     const navigate = useNavigate();
 
     const navigateBack = ()=>{
-        navigate(location?.state?location.state:'/allcrafts');
+        // console.log(location.state.state); This is for home to category section
+        navigate(location?.state?(location.state?.state?location.state.state:location.state):'/allcrafts');
     }
     return (
         <div className='w-[85%] mx-auto my-10 px-10 py-4 bg-yellow-50 rounded-xl'>

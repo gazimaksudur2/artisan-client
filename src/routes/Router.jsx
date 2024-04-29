@@ -16,6 +16,7 @@ import UpdateCraft from "../pages/MyCraft/UpdateCraft";
 import ViewCraft from "../pages/ViewCraft/ViewCraft";
 import Loader from "../components/Loader";
 import Spinner from "../components/Spinner";
+import CategoryPage from "../pages/Category/CategoryPage";
 
 const router = createBrowserRouter([
     {
@@ -25,7 +26,8 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <Home/>
+                element: <Home/>,
+                loader: ()=>fetch('roughData.json'),
             },
             {
                 path: '/allcrafts',
@@ -87,6 +89,11 @@ const router = createBrowserRouter([
                 path: '/secondary/view/:id',
                 element: <ViewCraft/>,
                 loader: ({params})=>fetch(`http://localhost:5000/crafts/${params.id}`),
+            },
+            {
+                path: '/secondary/category/:name',
+                element: <CategoryPage/>,
+                loader: ({params})=>fetch(`http://localhost:5000/crafts/subcategory/${params.name}`),
             }
         ]
     }
