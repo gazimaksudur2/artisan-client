@@ -54,7 +54,7 @@ const AddCraft = () => {
             })
     }
     return (
-        <div className='bg-orange-100 text-center space-y-3 my-5 p-10 rounded-3xl flex flex-col justify-center items-center'>
+        <div className='w-[85%] mx-auto bg-orange-100 text-center space-y-3 my-5 p-10 rounded-3xl flex flex-col justify-center items-center'>
             <ScrollRestoration />
             <h1 className='font-rancho font-bold text-4xl text-[#331a15]'>Add New Craft</h1>
             <p className='text-[#1b1a1aab] w-[60%]'>Immerse yourself in the cultural tapestry of our nations artistic heritage at our esteemed art gallery. Explore the depths of our collective imagination, as we showcase the beauty, passion, and innovation that define our nations artistic identity.</p>
@@ -71,7 +71,7 @@ const AddCraft = () => {
                     </div>
                     {/* <input name="subcategory" type="text" placeholder="Enter Craft SubCategory" className="input input-bordered w-full" /> */}
                     <select name="subcategory" className="select select-bordered w-full">
-                        {/* <option disabled selected></option> */}
+                        <option disabled selected></option>
                         <option>Embroidery</option>
                         <option>Knitting</option>
                         <option>Quilting</option>
@@ -97,7 +97,7 @@ const AddCraft = () => {
                         <span className="label-text">Stock Status</span>
                     </div>
                     <select name="stock" className="select select-bordered w-full">
-                        {/* <option disabled selected></option> */}
+                        <option disabled selected></option>
                         <option>In Stock</option>
                         <option>Made to Order</option>
                     </select>                
@@ -107,7 +107,7 @@ const AddCraft = () => {
                         <span className="label-text">Customization</span>
                     </div>
                     <select name="customization" className="select select-bordered w-full">
-                        {/* <option disabled selected></option> */}
+                        <option disabled selected></option>
                         <option>Yes</option>
                         <option>No</option>
                     </select>

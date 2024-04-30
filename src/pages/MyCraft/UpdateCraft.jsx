@@ -67,7 +67,17 @@ const UpdateCraft = () => {
                     <div className="label">
                         <span className="label-text">SubCategory</span>
                     </div>
-                    <input name="subcategory" type="text" defaultValue={subcategory} className="input input-bordered w-full" />
+                    {/* <input name="subcategory" type="text" defaultValue={subcategory} className="input input-bordered w-full" /> */}
+                    <select name="subcategory" className="select select-bordered w-full">
+                        {/* <option disabled selected></option> */}
+                        <option selected disabled>{subcategory}</option>
+                        {/* <option>Embroidery</option>
+                        <option>Knitting</option>
+                        <option>Quilting</option>
+                        <option>Beadwork</option>
+                        <option>Tie-Dyeing</option>
+                        <option>Macrame</option> */}
+                    </select>
                 </label>
                 <label className="form-control w-full">
                     <div className="label">

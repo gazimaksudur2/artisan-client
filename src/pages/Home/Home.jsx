@@ -2,6 +2,7 @@ import { ScrollRestoration } from 'react-router-dom';
 import Banner from './Banner';
 import SubSection from './SubSection';
 import CraftCategory from './CraftCategory';
+import FeaturedSection from './FeaturedSection';
 
 const Home = () => {
     const info = {
@@ -13,6 +14,7 @@ const Home = () => {
         <div className='mb-10 h-full w-full flex flex-col justify-between items-center'>
             <ScrollRestoration/>
             <Banner/>
+            <FeaturedSection/>
             <SubSection info={info}/>
             <CraftCategory/>
         </div>
