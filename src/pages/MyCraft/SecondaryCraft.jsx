@@ -10,7 +10,7 @@ const SecondaryCraft = () => {
         navigate(location?.state?(location.state?.state?location.state.state:location.state):(location.pathname.includes('category')?'/':'/allcrafts'));
     }
     return (
-        <div className='w-[95%] md:w-[85%] mx-auto my-10 px-10 py-4 bg-yellow-50 rounded-xl'>
+        <div className='w-[95%] md:w-[85%] mx-auto my-10 px-1 md:px-10 py-4 bg-yellow-50 rounded-xl'>
             <ScrollRestoration/>
             <div className='my-10 text-[#331a15]'>
                 <div onClick={navigateBack} className='flex justify-start items-center gap-2 bg-yellow-200 max-w-[9rem] hover:cursor-pointer text-orange-800 rounded p-2'>
