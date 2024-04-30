@@ -26,7 +26,7 @@ const AddCraft = () => {
 
         // console.log(name, subcategory, rating, stock, customization, brief, price, url, user_url);
 
-        fetch('https://artisan-heaven-server.vercel.app/crafts', {
+        fetch('http://localhost:5000/crafts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

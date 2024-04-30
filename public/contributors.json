@@ -1,0 +1,24 @@
+[
+    {
+      "name": "John Doe",
+      "profession": "Photographer",
+      "talk": "Join me on a visual journey through the lens of nature's beauty and serenity.",
+      "imageurl": "https://tecdn.b-cdn.net/img/new/avatars/5.webp",
+      "bgurl": "https://tecdn.b-cdn.net/img/new/standard/nature/186.jpg"
+    },
+    {
+      "name": "Jane Smith",
+      "profession": "Artist",
+      "talk": "Discover the magic of colors and forms as the boundless realms of artistic expression.",
+      "imageurl": "https://mdbcdn.b-cdn.net/img/new/avatars/1.webp",
+      "bgurl": "https://tecdn.b-cdn.net/img/new/standard/nature/184.jpg"
+    },
+    {
+      "name": "Alex Johnson",
+      "profession": "Explorer",
+      "talk": "Embark on an adventure into the heart of untouched and untamed wilderness.",
+      "imageurl": "https://tecdn.b-cdn.net/img/new/avatars/2.webp",
+      "bgurl": "https://tecdn.b-cdn.net/img/new/standard/nature/182.jpg"
+    }
+  ]
+  
