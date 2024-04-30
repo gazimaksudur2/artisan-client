@@ -19,11 +19,13 @@ const FeaturedSection = () => {
         const myCrafts = [];
         crafts && crafts.map(craft => {
             const category = craft.subcategory;
-            if (!check.includes(category)) {
-                console.log('pushed -->',craft.category);
+            if (!check.includes(category)&& (id&1)) {
+                // console.log('pushed -->',craft.category);
                 myCrafts.push(craft);
                 check.push(category);
             }
+            id = (id>10000?105:(parseInt(Math.random()*10)));
+            // console.log(id);
         });
         setShowCrafts(myCrafts);
         console.log(showCrafts);
