@@ -13,7 +13,7 @@ const About = () => {
         <div className='flex flex-col justify-center items-center'>
             <ScrollRestoration/>
             <SubSection info={info}/>
-            <div className='md:w-[80%] w-[95%] mx-auto mb-10 space-y-4 md:gap-16 md:grid grid-cols-1 md:grid-cols-3 justify-items-center my-6'>
+            <div className='md:w-[80%] w-[55%] mx-auto mb-10 space-y-4 md:gap-16 md:grid grid-cols-1 md:grid-cols-3 justify-items-center my-6'>
                 {
                     contributors.map((contributor, idx)=><Contributor contributor={contributor} key={idx}/>)
                 }
