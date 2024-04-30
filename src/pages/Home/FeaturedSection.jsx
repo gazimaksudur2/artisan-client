@@ -8,7 +8,7 @@ const FeaturedSection = () => {
     let check = [], id=0;
 
     useEffect(() => {
-        fetch('http://localhost:5000/crafts/')
+        fetch('https://artisan-heaven-server.vercel.app/crafts/')
             .then(res => res.json())
             .then(data => {
                 setCrafts(data);
@@ -28,10 +28,10 @@ const FeaturedSection = () => {
             // console.log(id);
         });
         setShowCrafts(myCrafts);
-        console.log(showCrafts);
+        // console.log(showCrafts);
     }, [crafts])
 
-    console.log(showCrafts);
+    // console.log(showCrafts);
     const info = {
         title: "Featured Enthusiastic Crafts",
         description: "Explore our featured section and immerse yourself in a curated selection of exquisite artworks, showcasing creativity in its purest form"

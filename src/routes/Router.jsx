@@ -33,7 +33,7 @@ const router = createBrowserRouter([
             {
                 path: '/allcrafts',
                 element: <AllCrafts/>,
-                loader: ()=> fetch(`http://localhost:5000/crafts`),
+                loader: ()=> fetch(`https://artisan-heaven-server.vercel.app/crafts`),
             },
             {
                 path: '/addcrafts',
@@ -93,17 +93,17 @@ const router = createBrowserRouter([
             {
                 path: '/secondary/update/:id',
                 element: <UpdateCraft/>,
-                loader: ({params})=>fetch(`http://localhost:5000/crafts/${params.id}`),
+                loader: ({params})=>fetch(`https://artisan-heaven-server.vercel.app/crafts/${params.id}`),
             },
             {
                 path: '/secondary/view/:id',
                 element: <ViewCraft/>,
-                loader: ({params})=>fetch(`http://localhost:5000/crafts/${params.id}`),
+                loader: ({params})=>fetch(`https://artisan-heaven-server.vercel.app/crafts/${params.id}`),
             },
             {
                 path: '/secondary/category/:name',
                 element: <CategoryPage/>,
-                loader: ({params})=>fetch(`http://localhost:5000/crafts/subcategory/${params.name}`),
+                loader: ({params})=>fetch(`https://artisan-heaven-server.vercel.app/crafts/subcategory/${params.name}`),
             }
         ]
     }
