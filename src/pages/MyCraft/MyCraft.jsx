@@ -5,20 +5,22 @@ import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 
 const MyCraft = () => {
-    const { user } = useContext(AuthContext);
+    const { user, setLoading } = useContext(AuthContext);
     const [myCrafts, setMyCrafts] = useState(null);
     const [showCrafts, setShowCrafts] = useState(null);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/crafts/email/${user?.email}`)
+        setLoading(true);
+        fetch(`https://artisan-heaven-server.vercel.app/crafts/email/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
                 setMyCrafts(data);
                 setShowCrafts(data);
             })
+        setLoading(false);
     }, [user])
-    // console.log(`http://localhost:5000/crafts/email/${user?.email}`);
+    // console.log(`https://artisan-heaven-server.vercel.app/crafts/email/${user?.email}`);
 
     const handleFilter = (val)=>{
         if(val!=='all'){
@@ -47,7 +49,7 @@ const MyCraft = () => {
             reverseButtons: true
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/crafts/${id}`, {
+                fetch(`https://artisan-heaven-server.vercel.app/crafts/${id}`, {
                     method: 'delete'
                 })
                     .then(res => res.json())

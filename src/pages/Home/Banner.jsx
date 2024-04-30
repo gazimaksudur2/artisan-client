@@ -38,8 +38,8 @@ const Banner = () => {
               <div className='w-full relative'>
                 <img className='absolute w-full object-cover -z-20' src={inf.url} alt="Banner Image" />
                 <div className='absolute text-white space-y-4 z-20 w-[50%] mx-auto top-[14rem] right-[6rem]'>
-                  <h2 className='font-mplus font-semibold text-3xl'>{inf.title}</h2>
-                  <p className='font-mplus font-normal'>{inf.description}</p>
+                  <h2 className='font-mplus font-semibold text-4xl'>{inf.title}</h2>
+                  <p className='font-mplus font-medium'>{inf.description}</p>
                 </div>
               </div>
             </SwiperSlide>
