@@ -96,10 +96,10 @@ const Login = () => {
         })
     }
     return (
-        <div className='min-h-screen relative bg-auth1 bg-cover bg-no-repeat backdrop-blur flex flex-row-reverse justify-evenly items-center'>
+        <div className='min-h-screen py-10 relative bg-auth1 bg-cover bg-no-repeat backdrop-blur flex flex-col md:flex-row-reverse justify-evenly items-center gap-5'>
             <ScrollRestoration/>
             <div className="absolute w-full -z-20 inset-0 bg-black opacity-50 min-h-full"></div>
-            <div className='w-[45%] p-10 rounded-md backdrop-blur flex flex-col justify-center items-center text-right gap-4'>
+            <div className='md:w-[45%] p-10 rounded-md backdrop-blur flex flex-col justify-center items-center text-right gap-4'>
                 <h1 className="font-exo font-semibold text-4xl text-white w-full text-right">A Celebration of <span className="text-orange-500">
                     <Typewriter
                             words={['Creativity', 'imagination', 'Critical Thinking', 'Cognitive Ability', 'Emotion', 'Tactile Sensation!']}
@@ -113,7 +113,7 @@ const Login = () => {
                 <p className="text-gray-300 text-lg">Our gallery showcases the diverse talents of local and international artisans, offering a kaleidoscope of colors, textures, and forms that captivate the senses and ignite the imagination. </p>
                 <Link to={'/'} className="btn w-[40%] flex justify-center items-center"><IoArrowBackSharp size={20}/> <p>Go Back Home</p></Link>
             </div>
-            <div className='w-[30%] py-8 bg-white rounded text-[#505050] flex flex-col justify-center items-center space-y-4 font-mplus'>
+            <div className='md:w-[30%] w-[90%] py-8 bg-white rounded text-[#505050] flex flex-col justify-center items-center space-y-4 font-mplus'>
                 <div className="flex flex-col justify-center items-center gap-3">
                     <div className="flex justify-center items-center gap-2">
                         <img className="w-8" src="https://cdn-icons-png.flaticon.com/512/2970/2970785.png" alt="logo" />
@@ -132,7 +132,7 @@ const Login = () => {
                             {showPass?<FaEyeSlash onClick={()=>setShowPass(false)} className="absolute right-4" size={15}/>:<FaEye onClick={()=>setShowPass(true)} className="absolute right-4" size={15}/>}                            
                             <input type={`${showPass?'text':'password'}`} className="grow" name="password" placeholder="password" />
                         </label>
-                        <div className="flex flex-row justify-between items-center">
+                        <div className="flex flex-col md:flex-row justify-between items-center">
                             <div className="form-control">
                                 <label className="label cursor-pointer flex-row-reverse gap-2">
                                     <span className="label-text">Remember me</span>

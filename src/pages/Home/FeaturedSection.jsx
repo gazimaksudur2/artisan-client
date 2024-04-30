@@ -39,7 +39,7 @@ const FeaturedSection = () => {
     return (
         <div className=''>
             <SubSection info={info} />
-            <div className='my-10 grid grid-cols-2 gap-8 justify-items-center'>
+            <div className='my-10 px-5 grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center'>
                 {
                     showCrafts && showCrafts.map((craft, idx) =>
                         <div key={idx} className="flex flex-col rounded-lg bg-orange-400 text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white md:max-w-xl md:flex-row">

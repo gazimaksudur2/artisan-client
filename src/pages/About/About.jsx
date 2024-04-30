@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom';
+import { ScrollRestoration, useLoaderData } from 'react-router-dom';
 import SubSection from '../Home/SubSection';
 import Contributor from './Contributor';
 
@@ -11,6 +11,7 @@ const About = () => {
     // console.log(contributors);
     return (
         <div className='flex flex-col justify-center items-center'>
+            <ScrollRestoration/>
             <SubSection info={info}/>
             <div className='w-[80%] mx-auto mb-10 gap-16 grid grid-cols-3 justify-items-center my-6'>
                 {

@@ -1,3 +1,4 @@
+import { ScrollRestoration } from 'react-router-dom';
 import SubSection from '../Home/SubSection';
 import Gallery from './Gallery';
 
@@ -8,6 +9,7 @@ const Exhibition = () => {
     }
     return (
         <div className='my-10'>
+            <ScrollRestoration/>
             <SubSection info={info}/>
             <Gallery/>
         </div>

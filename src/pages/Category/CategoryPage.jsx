@@ -18,14 +18,14 @@ const CategoryPage = () => {
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Item</th>
-                            <th>Provider</th>
-                            <th>Provider Email</th>
-                            <th>Rating</th>
-                            <th>Price</th>
-                            <th>Customization</th>
-                            <th>Stock Status</th>
-                            <th>View</th>
+                            <th className=''>Item</th>
+                            <th className=''>Provider</th>
+                            <th className='hidden'>Provider Email</th>
+                            <th className=''>Rating</th>
+                            <th className=''>Price</th>
+                            <th className='hidden'>Customization</th>
+                            <th className=''>Stock Status</th>
+                            <th className=''>View</th>
                         </tr>
                     </thead>
                     <tbody>

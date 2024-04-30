@@ -3,6 +3,7 @@ import MyCraftItem from "./MyCraftItem";
 import MyCraftSection from "./MyCraftSection";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { ScrollRestoration } from "react-router-dom";
 
 const MyCraft = () => {
     const { user, setLoading } = useContext(AuthContext);
@@ -93,6 +94,7 @@ const MyCraft = () => {
 
     return (
         <div>
+            <ScrollRestoration/>
             <MyCraftSection />
             {
                 filteredCraft

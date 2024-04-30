@@ -19,7 +19,7 @@ const CraftCategory = () => {
                 <img className="w-10" src="https://cdn-icons-png.flaticon.com/128/477/477406.png" alt="star" />
                 <h2 className="font-mplus text-2xl font-semibold">View by Category Clicking on the Cards</h2>
             </div>
-            <div className="grid grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 {
                     category && category.map(cate=>(<CategoryCard key={cate.id} category={cate}/>))
                 }

@@ -119,10 +119,10 @@ const Register = () => {
             })
     }
     return (
-        <div className='min-h-screen relative bg-auth2 bg-cover bg-no-repeat backdrop-blur flex flex-row justify-evenly items-center'>
+        <div className='min-h-screen py-10 relative bg-auth2 bg-cover bg-no-repeat backdrop-blur flex flex-col md:flex-row justify-evenly items-center gap-6'>
             <ScrollRestoration />
             <div className="absolute w-full -z-20 inset-0 bg-black opacity-50 min-h-full"></div>
-            <div className='w-[45%] p-10 rounded-md backdrop-blur flex flex-col justify-center items-center text-left gap-4'>
+            <div className='md:w-[45%] p-10 rounded-md backdrop-blur flex flex-col justify-center items-center text-left gap-4'>
                 <h1 className="font-exo font-semibold text-4xl text-white w-full text-left">A Celebration of <span className="text-orange-500">
                     <Typewriter
                             words={['Creativity', 'imagination', 'Critical Thinking', 'Cognitive Ability', 'Emotion', 'Tactile Sensation!']}
@@ -134,9 +134,9 @@ const Register = () => {
                             delaySpeed={1000}
                         /></span></h1>
                 <p className="text-gray-300 text-lg">Step into Artisan Haven, where creativity knows no bounds. Immerse yourself in a vibrant world of artistic expression, where every stroke of the brush, every thread woven, and every sculpture crafted tells a unique story.</p>
-                <Link to={'/'} className="btn w-[40%] flex justify-center items-center"><IoArrowBackSharp size={20} /> <p>Go Back Home</p></Link>
+                <Link to={'/'} className="btn md:w-[40%] flex justify-center items-center"><IoArrowBackSharp size={20} /> <p>Go Back Home</p></Link>
             </div>
-            <div className='w-[30%] py-8 bg-white rounded text-[#505050] flex flex-col justify-center items-center space-y-4 font-mplus'>
+            <div className='md:w-[30%] w-[90%] py-8 bg-white rounded text-[#505050] flex flex-col justify-center items-center space-y-4 font-mplus'>
                 <div className="flex flex-col justify-center items-center gap-3">
                     <div className="flex justify-center items-center gap-2">
                         <img className="w-8" src="https://cdn-icons-png.flaticon.com/512/2970/2970785.png" alt="logo" />
