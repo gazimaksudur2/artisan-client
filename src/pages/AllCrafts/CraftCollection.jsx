@@ -6,7 +6,7 @@ const CraftCollection = () => {
 
     // console.log(allCrafts);
     return (
-        <div className='grid grid-cols-3 gap-8 mb-10'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mb-10'>
             {
                 allCrafts.map(craft => <CraftItem key={craft._id} craft={craft}/>)
             }

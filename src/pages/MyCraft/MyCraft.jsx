@@ -80,8 +80,8 @@ const MyCraft = () => {
 
     // console.log(myCrafts);
 
-    const filteredCraft = <div className="my-10 w-full space-y-4 flex flex-col justify-center items-center">
-        <h1 className="font-mplus text-xl font-semibold">Filter your Own Created crafts over customization property</h1>
+    const filteredCraft = <div className="w-[90%] mx-auto my-10 md:w-full space-y-4 flex flex-col justify-center items-center">
+        <h1 className="font-mplus text-xl font-semibold text-center">Filter your Own Created crafts over customization property</h1>
         <details className="dropdown dropdown-right">
             <summary className="m-1 px-10 btn bg-orange-600 hover:bg-orange-400 text-white">Filter</summary>
             <ul className="p-2 shadow menu dropdown-content z-[1] bg-orange-100 rounded-box">
@@ -99,7 +99,7 @@ const MyCraft = () => {
             {
                 filteredCraft
             }
-            <div className="mb-10 grid grid-cols-3 w-[90%] mx-auto justify-items-center content-center gap-8">
+            <div className="mb-10 grid md:grid-cols-3 w-[90%] mx-auto justify-items-center content-center gap-8">
                 {
                     myCrafts && showCrafts.map(craft => <MyCraftItem handleDelete={handleDeleteCraft} key={craft._id} craft={craft} />)
                 }

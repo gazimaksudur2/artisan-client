@@ -2,7 +2,7 @@
 
 const CraftSection = () => {
     return (
-        <div className='px-[15%] my-10 flex flex-col justify-center items-center text-center'>
+        <div className='px-[4%] md:px-[15%] my-6 md:my-10 flex flex-col justify-center items-center text-center'>
             <div className="space-y-3 mb-10 flex flex-col justify-center items-center">
                 <h2 className='text-3xl font-exo font-bold'>Artisan Haven: Where Creativity Flourishes</h2>
                 <p className='font-open'>Welcome to Craftopia, where imagination knows no bounds and creativity thrives. Explore our curated collection of art and crafts from talented artisans around the world. From intricate embroidery and stunning paintings to exquisite ceramics and handcrafted jewelry, Craftopia is a haven for art lovers and craft enthusiasts alike. Immerse yourself in a world of color, texture, and innovation as you discover unique treasures and celebrate the beauty of handmade craftsmanship.</p>

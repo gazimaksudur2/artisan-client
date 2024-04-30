@@ -52,11 +52,11 @@ const UpdateCraft = () => {
 
     // console.log(user.photoURL);
     return (
-        <div className='bg-orange-100 text-center space-y-3 my-5 p-10 rounded-3xl flex flex-col justify-center items-center'>
+        <div className='bg-orange-100 text-center space-y-3 my-5 px-2 py-4 md:p-10 rounded-3xl flex flex-col justify-center items-center'>
             <ScrollRestoration />
             <h1 className='font-rancho font-bold text-4xl text-[#331a15]'>Update Your Craft</h1>
-            <p className='text-[#1b1a1aab] w-[60%]'>Ignite your creativity or seeking one-of-a-kind textile treasures to adorn your home, the beauty and versatility of textile arts. Explore our virtual gallery and embark on a journey of inspiration and discovery through the world of textiles.</p>
-            <form onSubmit={handleSubmit} className="m-6 p-2 grid grid-cols-2 justify-items-center gap-x-6 gap-y-2 w-[70%]">
+            <p className='text-[#1b1a1aab] w-[90%] md:w-[60%]'>Ignite your creativity or seeking one-of-a-kind textile treasures to adorn your home, the beauty and versatility of textile arts. Explore our virtual gallery and embark on a journey of inspiration and discovery through the world of textiles.</p>
+            <form onSubmit={handleSubmit} className="m-6 p-2 grid grid-cols-2 justify-items-center gap-x-6 gap-y-2 md:w-[70%]">
                 <label className="form-control w-full">
                     <div className="label">
                         <span className="label-text">Item Name</span>

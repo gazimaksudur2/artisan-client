@@ -54,11 +54,11 @@ const AddCraft = () => {
             })
     }
     return (
-        <div className='w-[85%] mx-auto bg-orange-100 text-center space-y-3 my-5 p-10 rounded-3xl flex flex-col justify-center items-center'>
+        <div className='w-[95%] md:w-[85%] mx-auto bg-orange-100 text-center space-y-3 my-5 px-2 py-4 md:p-10 rounded-3xl flex flex-col justify-center items-center'>
             <ScrollRestoration />
             <h1 className='font-rancho font-bold text-4xl text-[#331a15]'>Add New Craft</h1>
-            <p className='text-[#1b1a1aab] w-[60%]'>Immerse yourself in the cultural tapestry of our nations artistic heritage at our esteemed art gallery. Explore the depths of our collective imagination, as we showcase the beauty, passion, and innovation that define our nations artistic identity.</p>
-            <form onSubmit={handleSubmit} className="m-6 p-2 grid grid-cols-2 justify-items-center gap-x-6 gap-y-2 w-[70%]">
+            <p className='text-[#1b1a1aab] w-[90%] md:w-[60%]'>Immerse yourself in the cultural tapestry of our nations artistic heritage at our esteemed art gallery. Explore the depths of our collective imagination, as we showcase the beauty, passion, and innovation that define our nations artistic identity.</p>
+            <form onSubmit={handleSubmit} className="md:m-6 md:p-2 grid grid-cols-2 justify-items-center gap-x-6 gap-y-2 md:w-[70%]">
                 <label className="form-control w-full">
                     <div className="label">
                         <span className="label-text">Item Name</span>
