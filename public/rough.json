@@ -1,29 +1,32 @@
-{
-    "categories": [
-      {
-        "title": "The Art of Embroidery",
-        "description": "Discover the intricate world of Embroidery. From delicate stitches to elaborate designs, explore creativity with needle and thread."
-      },
-      {
-        "title": "Crafting with Knitting & Crocheting",
-        "description": "Unravel creativity with Knitting & Crocheting. Create stylish garments, cozy accessories, and intricate patterns with yarn and needles."
-      },
-      {
-        "title": "Mastering the Art of Quilting",
-        "description": "Enter the realm of Quilting mastery. Piece together fabrics, colors, and patterns to craft timeless and cozy heirlooms."
-      },
-      {
-        "title": "Exploring the World of Beadwork",
-        "description": "Dive deep into the vibrant world of Beadwork. String together beads of all shapes and sizes to create intricate jewelry and adornments."
-      },
-      {
-        "title": "Expressing Creativity through Tie-Dyeing",
-        "description": "Explore the vibrant art of Tie-Dyeing. Twist, fold, and dye fabrics to create unique and colorful expressions of creativity."
-      },
-      {
-        "title": "Crafting Beauty with Macrame",
-        "description": "Master the intricate craft of Macrame. Knot, weave, and create stunning patterns with cords and ropes for beautiful home decor."
-      }
-    ]
+[
+  {
+    "title": "The Art of Embroidery",
+    "url": "https://img.freepik.com/premium-photo/loom-with-many-multicolored-strips-generative-ai_272168-9720.jpg?w=1060",
+    "description": "Discover the intricate world of Embroidery. From delicate stitches to elaborate designs, explore creativity with needle and thread."
+  },
+  {
+    "title": "Crafting with Knitting & Crocheting",
+    "url": "https://img.freepik.com/premium-photo/precision-engineering-vividly-colored-cables-organized-industrial-setting_875722-36370.jpg?w=1060",
+    "description": "Unravel creativity with Knitting & Crocheting. Create stylish garments, cozy accessories, and intricate patterns with yarn and needles."
+  },
+  {
+    "title": "Mastering the Art of Quilting",
+    "url": "https://images.unsplash.com/photo-1476683874822-744764a2438f?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "description": "Enter the realm of Quilting mastery. Piece together fabrics, colors, and patterns to craft timeless and cozy heirlooms."
+  },
+  {
+    "title": "Exploring the World of Beadwork",
+    "url": "https://images.unsplash.com/photo-1675176785803-bffbbb0cd2f4?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "description": "Dive deep into the vibrant world of Beadwork. String together beads of all shapes and sizes to create intricate jewelry and adornments."
+  },
+  {
+    "title": "Expressing Creativity through Tie-Dyeing",
+    "url": "https://images.unsplash.com/photo-1606053929013-311c13f97b5f?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "description": "Explore the vibrant art of Tie-Dyeing. Twist, fold, and dye fabrics to create unique and colorful expressions of creativity."
+  },
+  {
+    "title": "Crafting Beauty with Macrame",
+    "url": "https://plus.unsplash.com/premium_photo-1664299852788-5a24db0d7e05?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "description": "Master the intricate craft of Macrame. Knot, weave, and create stunning patterns with cords and ropes for beautiful home decor."
   }
-  
+]

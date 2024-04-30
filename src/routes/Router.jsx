@@ -28,7 +28,7 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <Home/>,
-                loader: ()=>fetch('roughData.json'),
+                loader: ()=>fetch('rough.json'),
             },
             {
                 path: '/allcrafts',
