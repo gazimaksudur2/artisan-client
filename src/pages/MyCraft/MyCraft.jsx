@@ -12,7 +12,7 @@ const MyCraft = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`https://artisan-heaven-server.vercel.app/crafts/email/${user?.email}`)
+        fetch(user?.email?`http://localhost:5000/crafts/email/${user.email}`:`http://localhost:5000/crafts/user/${user.displayName}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
@@ -21,7 +21,7 @@ const MyCraft = () => {
             })
         setLoading(false);
     }, [user])
-    // console.log(`https://artisan-heaven-server.vercel.app/crafts/email/${user?.email}`);
+    // console.log(`http://localhost:5000/crafts/email/${user?.email}`);
 
     const handleFilter = (val)=>{
         if(val!=='all'){
@@ -50,7 +50,7 @@ const MyCraft = () => {
             reverseButtons: true
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://artisan-heaven-server.vercel.app/crafts/${id}`, {
+                fetch(`http://localhost:5000/crafts/${id}`, {
                     method: 'delete'
                 })
                     .then(res => res.json())

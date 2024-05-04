@@ -19,11 +19,11 @@ const CategoryPage = () => {
                         <tr>
                             <th>Item</th>
                             <th>Provider</th>
-                            <th className='hidden md:flex'>Provider Email</th>
+                            <th className='hidden md:inline-block'>Provider Email</th>
                             <th>Rating</th>
                             <th>Price</th>
-                            <th className='hidden md:flex'>Customization</th>
-                            <th className='hidden md:flex'>Stock Status</th>
+                            <th className='hidden md:inline-block'>Customization</th>
+                            <th className='hidden md:inline-block'>Stock Status</th>
                             <th>View</th>
                         </tr>
                     </thead>
@@ -34,11 +34,11 @@ const CategoryPage = () => {
                                 <tr className="hover" key={craft._id}>
                                     <th className='text-sm font-normal font-exo'>{craft.name}</th>
                                     <th className='text-sm font-normal font-exo'>{craft.provider}</th>
-                                    <th className='text-sm font-normal font-exo hidden md:flex'>{craft?.provider_email?craft.provider_email:'not provided'}</th>
+                                    <th className='text-sm font-normal font-exo hidden md:inline-block'>{craft?.provider_email?craft.provider_email:'not provided'}</th>
                                     <th className='text-sm font-normal font-exo'>{craft.rating}</th>
                                     <th className='text-sm font-normal font-exo'>{craft.price}</th>
-                                    <th className='text-sm font-normal font-exo hidden md:flex'>{craft.customization}</th>
-                                    <th className='text-sm font-normal font-exo hidden md:flex'>{craft.stock}</th>
+                                    <th className='text-sm font-normal font-exo hidden md:inline-block'>{craft.customization}</th>
+                                    <th className='text-sm font-normal font-exo hidden md:inline-block'>{craft.stock}</th>
                                     <th><Link to={`/secondary/view/${craft._id}`} state={location.pathname} className='font-normal font-mplus text-blue-700 underline'>view details</Link></th>
                                 </tr>
                             </>))

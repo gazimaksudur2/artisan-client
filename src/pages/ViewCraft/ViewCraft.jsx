@@ -22,7 +22,7 @@ const ViewCraft = () => {
                             <div className='font-mplus space-y-1'>
                                 <h3 className='font-medium'>{craft.provider}</h3>
                                 <h4 className='text-sm'>{craft?.provider_email!==null?craft.provider_email:"Email Not Provided"}</h4>
-                                <h4 className='text-xs font-light'>Processed At: {craft.processing_time.slice(0, 19)}</h4>
+                                <h4 className='text-xs font-light'>Processed At: {craft.processing_time.slice(0,10)}, {craft.processing_time.slice(11,19)}</h4>
                             </div>
                         </div>
                     </div>

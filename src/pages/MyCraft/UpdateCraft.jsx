@@ -14,7 +14,7 @@ const UpdateCraft = () => {
         const targ = e.target;
         const form = new FormData(targ);
         const name_form = form.get('name');
-        const subcategory_form = form.get('subcategory');
+        // const subcategory_form = form.get('subcategory');
         const rating_form = form.get('rating');
         const stock_form = form.get('stock') ? form.get('stock') : stock;
         const customization_form = form.get('customization') ? form.get('customization') : customization;
@@ -24,10 +24,10 @@ const UpdateCraft = () => {
 
         // console.log(name_form, subcategory_form, rating_form, stock_form, customization_form, brief_form, price_form, url_form);
 
-        fetch(`https://artisan-heaven-server.vercel.app/crafts/${_id}`, {
+        fetch(`http://localhost:5000/crafts/${_id}`, {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({ name: name_form, subcategory: subcategory_form, rating: rating_form, stock: stock_form, customization: customization_form, brief: brief_form, price: price_form, url: url_form, provider: user.displayName, provider_email: user.email, user_url: user.photoURL }),
+            body: JSON.stringify({ name: name_form, subcategory, rating: rating_form, stock: stock_form, customization: customization_form, brief: brief_form, price: price_form, url: url_form, provider: user.displayName, provider_email: user.email, user_url: user.photoURL }),
         })
             .then(res => res.json())
             .then(data => {

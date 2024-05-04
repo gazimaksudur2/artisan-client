@@ -5,10 +5,10 @@ import SubSection from './SubSection';
 const FeaturedSection = () => {
     const [crafts, setCrafts] = useState(null);
     const [showCrafts, setShowCrafts] = useState([]);
-    let check = [], id=0;
+    let check = [];
 
     useEffect(() => {
-        fetch('https://artisan-heaven-server.vercel.app/crafts/')
+        fetch('http://localhost:5000/crafts/')
             .then(res => res.json())
             .then(data => {
                 setCrafts(data);
@@ -16,15 +16,16 @@ const FeaturedSection = () => {
     }, []);
 
     useEffect(() => {
+        let id = (parseInt(Math.random() * 10));
         const myCrafts = [];
         crafts && crafts.map(craft => {
             const category = craft.subcategory;
-            if (!check.includes(category)&& (id&1)) {
+            if (!check.includes(category) && (id & 1)) {
                 // console.log('pushed -->',craft.category);
                 myCrafts.push(craft);
                 check.push(category);
             }
-            id = (id>10000?105:(parseInt(Math.random()*10)));
+            id = (parseInt(Math.random() * 10));
             // console.log(id);
         });
         setShowCrafts(myCrafts);
@@ -32,6 +33,9 @@ const FeaturedSection = () => {
     }, [crafts])
 
     // console.log(showCrafts);
+    // setTimeout(() => {
+    //     console.log(showCrafts);
+    // }, 2000);
     const info = {
         title: "Featured Enthusiastic Crafts",
         description: "Explore our featured section and immerse yourself in a curated selection of exquisite artworks, showcasing creativity in its purest form"
@@ -53,7 +57,7 @@ const FeaturedSection = () => {
                                     {craft.brief}...
                                 </p>
                                 <p className="text-sm font-mplus text-surface/75 dark:text-neutral-300">
-                                    Last updated at {craft.processing_time.slice(0,10)}, {craft.processing_time.slice(11,19)}
+                                    Last updated at {craft.processing_time.slice(0, 10)}, {craft.processing_time.slice(11, 19)}
                                 </p>
                             </div>
                         </div>

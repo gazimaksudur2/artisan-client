@@ -7,6 +7,7 @@ import { FaEye } from "react-icons/fa6";
 import Swal from "sweetalert2";
 import { useLocation } from "react-router-dom/dist";
 import { Typewriter } from 'react-simple-typewriter';
+import axios from "axios";
 
 const Login = () => {
     const reg_here = "Don't have an Account?";
@@ -73,6 +74,14 @@ const Login = () => {
         // console.log(email, password);
         logIn(email, password)
         .then(res=>{
+            //get access token
+            const loggedInUser = res.user;
+            console.log(loggedInUser);
+            const user = {email: email};
+            axios.post('http://localhost:5000/jwt', user)
+            .then(res=>{
+                console.log(res);
+            })
             Swal.fire({
                 icon: "success",
                 title: `Congratulations!! ${res?.user?.displayName}`,
